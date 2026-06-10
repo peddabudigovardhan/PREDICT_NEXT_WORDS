@@ -1,11 +1,9 @@
 import os
 import warnings
 
-# -------------------------------------------------------------------
-# ০. এনভায়রনমেন্ট ও ওয়ার্নিং কনফিগারেশন (অবশ্যই সবার আগে থাকবে)
-# -------------------------------------------------------------------
+
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # সব অপ্রয়োজনীয় লগ ও অ্যালার্ট বন্ধ করবে
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' ে
 warnings.filterwarnings('ignore', category=DeprecationWarning)
 warnings.filterwarnings('ignore', category=UserWarning)
 
@@ -16,16 +14,12 @@ import pickle
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-# Set page configuration
 st.set_page_config(
     page_title="Quote & Text AI Engine",
     page_icon="✍️",
     layout="wide"
 )
 
-# -------------------------------------------------------------------
-# 1. CACHED FILE LOADERS
-# -------------------------------------------------------------------
 @st.cache_resource
 def load_ml_assets():
     """Loads and caches models and tokenizers to optimize performance."""
